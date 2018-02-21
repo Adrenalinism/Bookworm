@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Bookworm
 {
@@ -20,9 +21,11 @@ namespace Bookworm
     /// </summary>
     public partial class MainWindow : Window
     {
+        string[] lines = File.ReadLines("C:\\Users\\Marko\\Downloads\\english-words-master\\english-words-master\\words_alpha.txt").ToArray();
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }
