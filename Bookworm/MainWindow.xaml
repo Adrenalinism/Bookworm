@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookworm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" Background="Black">
     <Grid>
-        <Label x:Name="label2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="111,94,0,0" Height="78" Width="295">
-            <Label x:Name="label1" Content=""/>
-        </Label>
-
+        <Label x:Name="label1" Content="wordwillbehere" HorizontalAlignment="Left" Margin="43,227,0,0" VerticalAlignment="Top" Height="82" Width="269" Foreground="White" FontSize="36"/>
+        <Label x:Name="label1_Copy" Content="Biggest word found:" HorizontalAlignment="Left" Margin="43,181,0,0" VerticalAlignment="Top" Height="46" Width="269" Foreground="#FFA4A4A4" FontSize="20"/>
+        <Label x:Name="label1_Copy1" Content="Currently using:" HorizontalAlignment="Left" Margin="43,21,0,0" VerticalAlignment="Top" Height="46" Width="269" Foreground="#FFA4A4A4" FontSize="20"/>
+        <Label x:Name="label1_Copy2" Content="" HorizontalAlignment="Left" Margin="43,67,0,0" VerticalAlignment="Top" Height="82" Width="444" Foreground="White" FontSize="36"/>
     </Grid>
 </Window>

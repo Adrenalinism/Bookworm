@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Globalization;
 
 namespace Bookworm
 {
@@ -22,8 +23,9 @@ namespace Bookworm
     public partial class MainWindow : Window
     {
         string[] all_words = File.ReadLines("C:\\Users\\Marko\\Downloads\\english-words-master\\english-words-master\\words_alpha.txt").ToArray();
+        
+        char[] original_letters = { 'f', 'q', 'u', 'x', 'a', 'a', 'e', 'i', 'd', 's', 'l', 'l', 'n', 'r', 'r', 't' };
         char[] available_letters = new char[16];
-        char[] original_letters = { 's', 'x', 'm', 'x', 'i', 'e', 'e', 'i', 'd', 's', 'r', 'p', 'g', 'x', 'z', 'w' };
         const int wordlength_limit = 5;
 
         
@@ -37,7 +39,7 @@ namespace Bookworm
 
             for (int i = 0; i < all_words.Length; i++) // go through dictionary
             {
-                Array.Copy(original_letters, available_letters, 16);
+                Array.Copy(original_letters, available_letters, original_letters.Length); // clone original letters so they can be temporarily modified
 
                 int letters_matched = 0;
                 int exit = 0;
@@ -51,7 +53,6 @@ namespace Bookworm
                         {
                             letters_matched++; // increase the count of letters of current word that are matched
                             available_letters[Array.IndexOf(available_letters, current_word_letters[j])] = '$'; // prevent letter from being used again in the loop
-                            //available_letters = available_letters.Select(x => x.Replace("one", "zero")).ToArray();
 
                             if (letters_matched == current_word_letters.Length && current_word_letters.Length > largest_word.Length) // if all letters of word exist in available letters and if this is word is the biggest yet, make it the biggest
                             {
@@ -65,8 +66,20 @@ namespace Bookworm
                     }
                 }
             }
-            label1.Content = largest_word;
-            
+            label1.Content = UppercaseFirst(largest_word);
+            string s = new string(original_letters);
+            label1_Copy2.Content = s.ToUpper();
+        }
+
+        static string UppercaseFirst(string s)
+        {
+            // Check for empty string.
+            if (string.IsNullOrEmpty(s))
+            {
+                return string.Empty;
+            }
+            // Return char and concat substring.
+            return char.ToUpper(s[0]) + s.Substring(1);
         }
     }
 }
