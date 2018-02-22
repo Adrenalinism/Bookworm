@@ -24,7 +24,7 @@ namespace Bookworm
     {
         string[] all_words = File.ReadLines("C:\\Users\\Marko\\Downloads\\english-words-master\\english-words-master\\words_alpha.txt").ToArray();
         
-        char[] original_letters = { 'f', 'q', 'u', 'x', 'a', 'a', 'e', 'i', 'd', 's', 'l', 'l', 'n', 'r', 'r', 't' };
+        char[] original_letters = { 'f', 'q', 'n', 'x', 's', 'c', 'g', 'h', 'd', 's', 'b', 'l', 'n', 'a', 'r', 'e' };
         char[] available_letters = new char[16];
         const int wordlength_limit = 5;
 
