@@ -24,18 +24,36 @@ namespace Bookworm
     {
         string[] all_words = File.ReadLines("C:\\Users\\Marko\\Downloads\\english-words-master\\english-words-master\\words_alpha.txt").ToArray();
         
-        char[] original_letters = { 'f', 'q', 'n', 'x', 's', 'c', 'g', 'h', 'd', 's', 'b', 'l', 'n', 'a', 'r', 'e' };
-        char[] available_letters = new char[16];
+        
+        
         const int wordlength_limit = 5;
 
         
 
-        string largest_word = "";
+        string[] largest_word = { "$", "$", "$", "$", "$" };
 
         public MainWindow()
         {
             InitializeComponent();
             
+        }
+
+        static string UppercaseFirst(string s)
+        {
+            // Check for empty string.
+            if (string.IsNullOrEmpty(s))
+            {
+                return string.Empty;
+            }
+            // Return char and concat substring.
+            return char.ToUpper(s[0]) + s.Substring(1);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            char[] original_letters = input.Text.ToCharArray();
+            char[] available_letters = new char[original_letters.Length];
 
             for (int i = 0; i < all_words.Length; i++) // go through dictionary
             {
@@ -54,9 +72,14 @@ namespace Bookworm
                             letters_matched++; // increase the count of letters of current word that are matched
                             available_letters[Array.IndexOf(available_letters, current_word_letters[j])] = '$'; // prevent letter from being used again in the loop
 
-                            if (letters_matched == current_word_letters.Length && current_word_letters.Length > largest_word.Length) // if all letters of word exist in available letters and if this is word is the biggest yet, make it the biggest
+                            for (int l = 0; l < largest_word.Length; l++)
                             {
-                                largest_word = all_words[i];
+                                if (letters_matched == current_word_letters.Length && current_word_letters.Length > largest_word[l].Length && !largest_word.Any(all_words[i].Contains)) // if all letters of word exist in available letters and if this is word is the biggest yet, make it the biggest
+                                {
+
+                                    largest_word[l] = all_words[i];
+
+                                }
                             }
                         }
                         else
@@ -66,20 +89,14 @@ namespace Bookworm
                     }
                 }
             }
-            label1.Content = UppercaseFirst(largest_word);
-            string s = new string(original_letters);
-            label1_Copy2.Content = s.ToUpper();
-        }
+            label1.Content = "1. " + UppercaseFirst(largest_word[0]);
+            label1_Copy3.Content = "2. " + UppercaseFirst(largest_word[1]);
+            label1_Copy4.Content = "3. " + UppercaseFirst(largest_word[2]);
+            label1_Copy5.Content = "4. " + UppercaseFirst(largest_word[3]);
+            label1_Copy6.Content = "5. " + UppercaseFirst(largest_word[4]);
 
-        static string UppercaseFirst(string s)
-        {
-            // Check for empty string.
-            if (string.IsNullOrEmpty(s))
-            {
-                return string.Empty;
-            }
-            // Return char and concat substring.
-            return char.ToUpper(s[0]) + s.Substring(1);
+            string s = new string(original_letters);
+            //label1_Copy2.Content = s.ToUpper();
         }
     }
 }

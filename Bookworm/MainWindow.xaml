@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookworm"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Background="Black">
+        Title="MainWindow" Height="671.034" Width="525" Background="Black">
     <Grid>
-        <Label x:Name="label1" Content="wordwillbehere" HorizontalAlignment="Left" Margin="43,227,0,0" VerticalAlignment="Top" Height="82" Width="269" Foreground="White" FontSize="36"/>
-        <Label x:Name="label1_Copy" Content="Biggest word found:" HorizontalAlignment="Left" Margin="43,181,0,0" VerticalAlignment="Top" Height="46" Width="269" Foreground="#FFA4A4A4" FontSize="20"/>
+        <Label x:Name="label1" Content="" HorizontalAlignment="Left" Margin="43,251,0,0" VerticalAlignment="Top" Height="82" Width="464" Foreground="White" FontSize="36"/>
+        <Label x:Name="label1_Copy" Content="Biggest words found:" HorizontalAlignment="Left" Margin="43,205,0,0" VerticalAlignment="Top" Height="46" Width="269" Foreground="#FFA4A4A4" FontSize="20"/>
         <Label x:Name="label1_Copy1" Content="Currently using:" HorizontalAlignment="Left" Margin="43,21,0,0" VerticalAlignment="Top" Height="46" Width="269" Foreground="#FFA4A4A4" FontSize="20"/>
-        <Label x:Name="label1_Copy2" Content="" HorizontalAlignment="Left" Margin="43,67,0,0" VerticalAlignment="Top" Height="82" Width="444" Foreground="White" FontSize="36"/>
+        <Label x:Name="label1_Copy3" Content="" HorizontalAlignment="Left" Margin="43,307,0,0" VerticalAlignment="Top" Height="82" Width="464" Foreground="White" FontSize="36"/>
+        <Label x:Name="label1_Copy4" Content="" HorizontalAlignment="Left" Margin="43,364,0,0" VerticalAlignment="Top" Height="82" Width="464" Foreground="White" FontSize="36"/>
+        <Label x:Name="label1_Copy5" Content="" HorizontalAlignment="Left" Margin="43,420,0,0" VerticalAlignment="Top" Height="82" Width="464" Foreground="White" FontSize="36"/>
+        <Label x:Name="label1_Copy6" Content="" HorizontalAlignment="Left" Margin="43,474,0,0" VerticalAlignment="Top" Height="82" Width="464" Foreground="White" FontSize="36"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="43,128,0,0" VerticalAlignment="Top" Width="147" Height="53" FontSize="36" Click="Button_Click"/>
+        <TextBox x:Name="input" HorizontalAlignment="Left" Height="56" Margin="43,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="464" Foreground="White" BorderBrush="White" Background="Black" FontSize="36"/>
     </Grid>
 </Window>
